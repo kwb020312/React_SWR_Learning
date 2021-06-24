@@ -95,5 +95,16 @@ SWRConfig를 사용하여 위 처럼 등록해놓으면 어디서든지 전역�
 데이터가 달라진 두 페이지가 있다면 실시간으로 처리해야하는 웹페이지 기능상 문제가 생길것이다.
 
 <img src="gitImages\focus_revalidate.gif">
+출처: SWR공식문서
 
 페이지에 포커싱하거나 탭간에 전환이 일어나면 SWR은 데이터를 검사하여 동기화시켜준다
+
+<img src="gitImages\interval_revalidate.gif">
+
+해당 기능처럼 실시간으로 refresh 해주는 옵션은 직접 지정하여야하는데,
+
+```javascript
+useSWR("key", callback, { refreshInterval: 1000 });
+```
+
+으로 해결할 수 있다.
