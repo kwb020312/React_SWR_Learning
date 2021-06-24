@@ -25,3 +25,19 @@ function App() {
 <img src="gitImages\Advantages.jpg">
 
 위 사진은 공식문서에서 장점으로 소개하는것이니 한번 보는게 좋을 것 같다
+
+```javascript
+import useSWR from "swr";
+
+export default function App() {
+  const { data, error } = useSWR("placeholder", () =>
+    fetch("https://jsonplaceholder.typicode.com/todos/").then((res) =>
+      res.json()
+    )
+  );
+  if (!data) return <h1>Loading..</h1>;
+  if (data) return <h1>Hello, {data[0].title}</h1>;
+}
+```
+
+가장 기본적인 사용의 예제이며 useSWR의 상태는 '로딩', '완료', '오류' 세가지로 나뉜다.
