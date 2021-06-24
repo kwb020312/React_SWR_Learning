@@ -1,4 +1,4 @@
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 
 function CallData() {
   const { data } = useSWR(
@@ -16,6 +16,7 @@ function CallData() {
 
 export default function App() {
   const data = CallData();
+  mutate("placeholder", { ...data, hello: "world" }, false);
   if (!data) return <h1>Loading..</h1>;
   if (data) return <h1>Hello, {data[0].title}</h1>;
 }
