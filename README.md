@@ -45,3 +45,29 @@ export default function App() {
 위의 코드의 출력결과는 아래와 같다
 
 <img src="gitImages\First_Fetch.jpg">
+
+## 재사용성
+
+하지만 렌더링 될 때 마다 이를 호출한다면 fetch함수를 기본으로 쓰는 것과 다를바가 없다. 오히려 쓰지않는편이 불필요한 Library를 불러오지 않기 때문에 시간으로나, 비용으로써 절약될 수 있다. 하지만 재사용이 되는순간 장점이 나오는데,
+
+```javascript
+function retry() {
+  const { data, error } = useSWR("key", callback);
+
+  return {
+    data,
+    isError: error,
+  };
+}
+```
+
+해당 함수처럼 따로 뺴놓은 상태에서 호출만 한다면
+
+```javascript
+// 다른 컴포넌트
+function Content() {
+  const { data, isError } = retry();
+}
+```
+
+API는 반복해서 불리지않고 캐싱되어 단 1개의 API요청만 들어갈 뿐 더 이상 불필요한 자료낭비를 하지않는다.
