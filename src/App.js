@@ -1,10 +1,15 @@
 import useSWR from "swr";
 
 function CallData() {
-  const { data } = useSWR("placeholder", () =>
-    fetch("https://jsonplaceholder.typicode.com/todos/").then((res) =>
-      res.json()
-    )
+  const { data } = useSWR(
+    "placeholder",
+    () =>
+      fetch("https://jsonplaceholder.typicode.com/todos/").then((res) =>
+        res.json()
+      ),
+    {
+      refreshInterval: 1000,
+    }
   );
   return data;
 }

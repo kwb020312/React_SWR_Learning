@@ -77,3 +77,23 @@ API는 반복해서 불리지않고 캐싱되어 단 1개의 API요청만 들어
 API옵션의 종류는 너무 다양해서 <a href="https://swr.vercel.app/docs/options">공식문서</a>의 링크를 참조하는것이 좋다.
 
 <img src="gitImages\API_Option.jpg">
+
+## SWRConfig
+
+```javascript
+import { SWRConfig } from "swr";
+
+<SWRConfig value={options}>
+  <Component />
+</SWRConfig>;
+```
+
+SWRConfig를 사용하여 위 처럼 등록해놓으면 어디서든지 전역적인 옵션을 적용시킬 수 있다.
+
+## 실시간 동기화
+
+데이터가 달라진 두 페이지가 있다면 실시간으로 처리해야하는 웹페이지 기능상 문제가 생길것이다.
+
+<video src="gitImages\focus-revalidate.mp4">
+
+위 영상처럼 페이지에 포커싱하거나 탭간에 전환이 일어나면 SWR은 데이터를 검사하여 동기화시켜준다
