@@ -41,3 +41,7 @@ export default function App() {
 ```
 
 가장 기본적인 사용의 예제이며 useSWR의 상태는 '로딩', '완료', '오류' 세가지로 나뉜다.
+
+위의 코드의 출력결과는 아래와 같다
+
+<img src="gitImages\First_Fetch.jpg">
