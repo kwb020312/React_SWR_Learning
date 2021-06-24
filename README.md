@@ -132,3 +132,23 @@ const { data2 } = useSWR("api/data2");
 ```
 
 즉 이렇게 해도 서로 다른 데이터를 잘 가져온다
+
+## key
+
+key를 삽입할 때 주의해야할점이 있는데, 우선 객체를 사용하지 않아야한다.
+
+만약
+
+```javascript
+const { data } = useSWR({ val: "hi" }, callback);
+```
+
+위 구조로 key를 전달하면 얕은복사를 하기 때문에 매번 다른 값이라 판단하게 되므로 객체를 자제하여야 한다.
+
+또한 첫 번째 인자는 배열의 형태로 여러가지 값을 담을 수 있는데,
+
+```javascript
+const { data } = useSWR([val1, val2], callback);
+```
+
+위와같은 전달이 가능하다.
