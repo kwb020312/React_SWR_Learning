@@ -71,3 +71,9 @@ function Content() {
 ```
 
 API는 반복해서 불리지않고 캐싱되어 단 1개의 API요청만 들어갈 뿐 더 이상 불필요한 자료낭비를 하지않는다.
+
+## API 옵션
+
+API옵션의 종류는 너무 다양해서 <a href="https://swr.vercel.app/docs/options">공식문서</a>의 링크를 참조하는것이 좋다.
+
+<img src="gitImages\API_Option.jpg">
