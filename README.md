@@ -94,7 +94,6 @@ SWRConfig를 사용하여 위 처럼 등록해놓으면 어디서든지 전역�
 
 데이터가 달라진 두 페이지가 있다면 실시간으로 처리해야하는 웹페이지 기능상 문제가 생길것이다.
 
-<video src="gitImages\focus-revalidate.mp4">
-</video>
+<img src="gitImages\focus_revalidate.gif">
 
-위 영상처럼 페이지에 포커싱하거나 탭간에 전환이 일어나면 SWR은 데이터를 검사하여 동기화시켜준다
+페이지에 포커싱하거나 탭간에 전환이 일어나면 SWR은 데이터를 검사하여 동기화시켜준다
