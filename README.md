@@ -100,6 +100,7 @@ SWRConfig를 사용하여 위 처럼 등록해놓으면 어디서든지 전역�
 페이지에 포커싱하거나 탭간에 전환이 일어나면 SWR은 데이터를 검사하여 동기화시켜준다
 
 <img src="gitImages\interval_revalidate.gif">
+출처: SWR공식문서
 
 해당 기능처럼 실시간으로 refresh 해주는 옵션은 직접 지정하여야하는데,
 
@@ -108,3 +109,26 @@ useSWR("key", callback, { refreshInterval: 1000 });
 ```
 
 으로 해결할 수 있다.
+
+## 조건부 fetch
+
+API호출을 하기 전 특정 조건이 아니라면 호출하고싶지 않을 경우가 있을 수 있다. 이 경우에는 useSWR의 첫 번째 인자에 값이 null 이라면 SWR은 요청을 시작하지않는다.
+
+```javascript
+// 검색 시작하지 않음
+const { data } = useSWR(null);
+
+// shouldFetch값이 false라면 검색 시작하지 않음
+const { data } = useSWR(shouldFetch ? callback : null);
+```
+
+## 종속
+
+같은 key를 가진 SWR을 호출할 때 콜백함수를 생략하여도 key값으로 구분하기에 다른 데이터에 의존하는 데이터를 효과적으로 가져올 수 있다.
+
+```javascript
+const { data1 } = useSWR("api/data1");
+const { data2 } = useSWR("api/data2");
+```
+
+즉 이렇게 해도 서로 다른 데이터를 잘 가져온다
