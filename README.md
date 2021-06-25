@@ -174,3 +174,7 @@ mutate("key", changedData, false);
 Next.js와 함께 사용하는 경우 SWR은 SSR에서 미리 데이터를 불러와 페이지 이동시에 화면깜빡임 없이 자연스러운 데이터 렌더링을 보여줄 수 있는 함수를 제공하는데, 그것이 바로 getStaticProps이다.
 
 해당 Repository에선 Next.js를 사용하고 있지 않기 때문에 다른 Repository에서 다루겠음
+
+<img src="gitImages\SWR_Main_Logo.jpg">
+
+이렇게 SWR을 마치며 React와 NextJS가 중요시되는 이 시점에서 React-Query 혹은 SWR은 이제 선택시되는 것이 아닌 필수적인 요소가 됨을 실감하게 되었다.
