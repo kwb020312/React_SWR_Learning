@@ -168,3 +168,9 @@ mutate("key", changedData, false);
 ※ spread문법으로 이전 데이터까지 포함해주어야 기존의 데이터가 삭제되지않음
 
 세 번째 인자는 재검증을 하냐의 여부인데 false값으로 해주는것이 좋다
+
+## getStaticProps
+
+Next.js와 함께 사용하는 경우 SWR은 SSR에서 미리 데이터를 불러와 페이지 이동시에 화면깜빡임 없이 자연스러운 데이터 렌더링을 보여줄 수 있는 함수를 제공하는데, 그것이 바로 getStaticProps이다.
+
+해당 Repository에선 Next.js를 사용하고 있지 않기 때문에 다른 Repository에서 다루겠음

@@ -1,22 +1,26 @@
 import useSWR, { mutate } from "swr";
 
-function CallData() {
-  const { data } = useSWR(
-    "placeholder",
-    () =>
-      fetch("https://jsonplaceholder.typicode.com/todos/").then((res) =>
-        res.json()
-      ),
-    {
-      refreshInterval: 1000,
-    }
+const fetcher = (url) =>
+  fetch("https://jsonplaceholder.typicode.com/todos/1").then((res) =>
+    res.json()
   );
+
+// export async function getStaticProps() {
+//   const staticData = await fetcher();
+//   return {
+//     props: { staticData },
+//   };
+// }
+
+function CallData() {
+  // console.log(props);
+  const { data } = useSWR("placeholder", fetcher, {});
   return data;
 }
 
 export default function App() {
   const data = CallData();
-  mutate("placeholder", { ...data, hello: "world" }, false);
+  mutate("placeholder", { title: "World !!" }, false);
   if (!data) return <h1>Loading..</h1>;
-  if (data) return <h1>Hello, {data[0].title}</h1>;
+  if (data) return <h1>Hello, {data.title}</h1>;
 }
